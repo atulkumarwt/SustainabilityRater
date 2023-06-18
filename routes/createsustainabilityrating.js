@@ -63,7 +63,13 @@ const createsustainabilityrating = async (request, response) => {
     const avgEnergyStrRtPerc = calculatePercentage(energyStarRating?.['en-US'], 5)
 
     const sustRating = mean([avgLfSpanPerc, avgEnergyStrRtPerc, percentageOfRecyclableMaterialUsed?.['en-US'], recyclablePercentage?.['en-US']])
-    
+    let sustainabilityMarker = 'low';
+
+    if(sustRating >= 50 && sustRating <75){
+      sustainabilityMarker = 'medium'
+    } else if(sustRating >=75 && sustRating <=100){
+      sustainabilityMarker = 'high'
+    }
     // We generate an AppToken based on our RSA keypair
     const spaceId = space.sys.id;
     const environmentId = environment.sys.id;
@@ -89,6 +95,7 @@ const createsustainabilityrating = async (request, response) => {
     ).then((r) => r.data);
     
     modifiedFields["sustainabilityRating"] = {"en-US":sustRating}
+    modifiedFields["sustainabilityMarker"] = {"en-US": sustainabilityMarker}
     
     //We make a request to contentful's CMA to update the Entry with our defaul values
     const res = await axios.put(

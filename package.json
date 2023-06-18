@@ -6,22 +6,24 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@contentful/app-scripts": "1.10.2",
     "@contentful/app-sdk": "^4.19.1",
     "@contentful/f36-components": "4.43.0",
     "@contentful/f36-tokens": "4.0.2",
-    "@contentful/react-apps-toolkit": "1.2.15",
-    "@contentful/app-scripts": "1.10.2",
     "@contentful/node-apps-toolkit": "^2.2.0",
+    "@contentful/react-apps-toolkit": "1.2.15",
+    "algoliasearch": "^4.17.2",
+    "axios": "*",
+    "contentful": "^10.2.4",
     "contentful-management": "10.36.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "*",
     "express": "~4.16.1",
+    "fs": "*",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "axios": "*",
-    "path":"*",
-    "dotenv": "*",
-    "fs": "*"
+    "path": "*"
   }
 }

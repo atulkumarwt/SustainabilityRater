@@ -6,7 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var sustainabilityRatingRouter = require('./routes/createsustainabilityrating')
+var sustainabilityRatingRouter = require('./routes/createsustainabilityrating');
+var getSustainabilityRatingRouter = require('./routes/getsustainabilityrating');
+var algoliaRouter = require('./routes/algolia');
 
 var app = express();
 
@@ -24,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/create-sustainability-rating', sustainabilityRatingRouter);
+app.use('/get-sustainability-rating', getSustainabilityRatingRouter);
+app.use ('/algolia', algoliaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
